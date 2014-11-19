@@ -54,6 +54,7 @@ public partial class AddModel : System.Web.UI.Page
             txtModel.Text = "";
             Response.Redirect("Car.aspx");
             //This should be ok
+            //ok fine
         }
         else
         {

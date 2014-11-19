@@ -17,6 +17,7 @@ public partial class AddCar : System.Web.UI.Page
         {
             Session.Abandon();
             Response.Redirect("AdminLogin.aspx");
+            //it's ok
         }
     }
 
