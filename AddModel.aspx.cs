@@ -53,6 +53,7 @@ public partial class AddModel : System.Web.UI.Page
             msg.Text = "Brand sucessfully added";
             txtModel.Text = "";
             Response.Redirect("Car.aspx");
+            //This should be ok
         }
         else
         {
