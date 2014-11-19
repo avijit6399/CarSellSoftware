@@ -21,19 +21,16 @@ public partial class Car : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
+            new CommonFunctions().fillEngineDropDown(ddlEngineType);
             String sql = "select BrandId, BrandName from BrandMaster order by BrandName";
             CommonFunctions cf = new CommonFunctions();
             cf.fillDatabaseDropDown(ddlBrandName, sql, "");
         }
-        if (!IsPostBack)
-        {
-            new CommonFunctions().fillEngineDropDown(ddlEngineType);
-        }
     }
     protected void onchange_ddlBrandName(object sender, EventArgs e)
     {
-        ddlModelName.Items.Add(new ListItem("Select Model", "0"));
-        String sql = "select brandId, ModelName from ModelMaster where BrandId=" + ddlBrandName.SelectedValue;
+        //ddlModelName.Items.Add(new ListItem("Select Model", "0"));
+        String sql = "select ModelId, ModelName from ModelMaster where BrandId=" + ddlBrandName.SelectedValue;
         CommonFunctions cf = new CommonFunctions();
         cf.fillDatabaseDropDown(ddlModelName, sql, "");
     }

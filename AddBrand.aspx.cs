@@ -47,6 +47,7 @@ public partial class AddCar : System.Web.UI.Page
             //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
             msg.Text = "Brand sucessfully added";
             txtBrand.Text = "";
+            Response.Redirect("AddModel.aspx");
         }
         else
         {

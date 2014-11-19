@@ -8,13 +8,15 @@
     <title>Car's information</title>
      <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
     <div class="page">
     <form id="form1" runat="server">
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
     <div>
-        <table border="10px" >
+        <br />
+        <br />
+        <br />
+        <table border="20px" align="center" style="vertical-align:bottom" >
              <tr>
                 <td>Car Brand:</td>
                 <td><asp:DropDownList ID="ddlBrandName" runat="server"></asp:DropDownList></td>
@@ -45,8 +47,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><asp:Button ID="btnSubmit" runat="server" Text="Submit" 
-                        onclick="btnSubmit_Click" /></td>
+                <td><asp:Button ID="btnSubmit" runat="server" Text="Submit" onclick="btnSubmit_Click" /></td>
             </tr>
             
         </table>
