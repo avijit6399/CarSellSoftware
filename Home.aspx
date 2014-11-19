@@ -14,7 +14,7 @@
      <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
         <div>
              <br />
-              <asp:Image ID="Image4" runat="server" ImageUrl="D:/my documents/CarImage/honda/Amaze.jpg" Height="201px" Width="371px"/>             
+              <asp:Image ID="Image4" runat="server" ImageUrl="~/CarImages/CR-V.jpg" Height="201px" Width="371px"/>             
              <br />
              <br />
              <br />

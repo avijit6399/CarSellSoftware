@@ -92,6 +92,14 @@ first child of the left and right table columns */
     background-color: #fff;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
+    height: 960px;
+}
+
+.tableClass
+{
+    border: thick dotted #FF0000;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .header
@@ -233,20 +241,7 @@ input.passwordEntry
 
 div.accountInfo
 {
-    width: 50%;
-    vertical-align:middle;
-}
-
-.centerTable {
-text-align:center;
-}
-
-.centerTable table {
-margin-left:auto;
-margin-right:auto;
-/* INHERITED ALIGNMENT IS CENTER. ONLY INCLUDE THIS IF YOU WANT */
-/* TO CHANGE THE ALIGNMENT OF THE CONTENTS OF THE TABLE */
-text-align:left;
+    width: 42%;
 }
 
 /* MISC  

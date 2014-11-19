@@ -15,7 +15,14 @@
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
     <div>
         <table border="10px" >
-           
+             <tr>
+                <td>Car Brand:</td>
+                <td><asp:DropDownList ID="ddlBrandName" runat="server"></asp:DropDownList></td>
+            </tr>
+            <tr>
+                <td>Car Model:</td>
+                <td><asp:DropDownList ID="ddlModelName" runat="server"></asp:DropDownList></td>
+            </tr>
              <tr>
                 <td>Car Color:</td>
                 <td><asp:TextBox ID="txtCarColor" runat="server"></asp:TextBox></td>

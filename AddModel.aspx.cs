@@ -29,7 +29,7 @@ public partial class AddModel : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         Boolean isDuplicate = false;
-        String sql = "select modelName from ModelMaster where ModelName='" + txtModel.Text.Replace("'","''") + "'";
+        String sql = "select ModelName from ModelMaster where ModelName='" + txtModel.Text.Replace("'","''") + "'";
         DbClass dc = new DbClass();
         DataSet ds = dc.returnDataSet(sql);
         if (ds.Tables[0].Rows.Count > 0)
@@ -52,10 +52,12 @@ public partial class AddModel : System.Web.UI.Page
             //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
             msg.Text = "Brand sucessfully added";
             txtModel.Text = "";
+            Response.Redirect("Car.aspx");
         }
         else
         {
             msg.Text = "Model " + txtModel.Text + " already exists. Please try another one.";
         }
+        
     }
 }
