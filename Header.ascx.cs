@@ -28,7 +28,7 @@ public partial class Header : System.Web.UI.UserControl
             HeadLoginName.Text = Session["FirstName"].ToString();
             divLinkInfo.Visible = false;
             NavigationMenu.Items.Add(new MenuItem("Add Brand", "", "", "AddBrand.aspx"));
-            //NavigationMenu.Items.Add(new MenuItem("Add Model", "", "", "AddModel.aspx"));
+            NavigationMenu.Items.Add(new MenuItem("Add Model", "", "", "AddModel.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Update Pofile", "", "", "AdminUpdateProfile.aspx"));
 
         }

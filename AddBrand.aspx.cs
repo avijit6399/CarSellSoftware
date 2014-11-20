@@ -45,9 +45,8 @@ public partial class AddCar : System.Web.UI.Page
             SqlCommand command = new SqlCommand(sql, con);
             int returnCode = command.ExecuteNonQuery();
             //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
-            msg.Text = "Brand sucessfully added";
+            msg.Text = "Brand " + txtBrand.Text + " sucessfully added";
             txtBrand.Text = "";
-            Response.Redirect("AddModel.aspx");
         }
         else
         {
