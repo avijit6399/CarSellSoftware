@@ -15,8 +15,7 @@
     <div>
         <br />
         <br />
-        <br />
-        <table border="20px" align="center" style="vertical-align:bottom" >
+        <table class="tableClass" cellpadding="5" cellspacing="5">
              <tr>
                 <td>Car Brand:</td>
                 <td><asp:DropDownList ID="ddlBrandName" OnSelectedIndexChanged="onchange_ddlBrandName" AutoPostBack="True" runat="server"></asp:DropDownList></td>

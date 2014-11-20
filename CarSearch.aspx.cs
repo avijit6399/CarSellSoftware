@@ -15,13 +15,14 @@ public partial class CarSearch : System.Web.UI.Page
         if (!IsPostBack)
         {
             new CommonFunctions().fillEngineDropDown(ddlEngineType);
+            ddlModel.Items.Add(new ListItem("Select Model","0"));
             //new CommonFunctions().fillBrandDropDown(ddlBrandName);
 
             String sql = "select BrandId, BrandName from BrandMaster";
             CommonFunctions cf = new CommonFunctions();
             cf.fillDatabaseDropDown(ddlBrandName, sql, "", "Select Brand", "0");
             //ddlBrandName.Items.Add(new ListItem("Select Brand", "0"));
-
+            divGridView.Visible = false;
 
         }
     }
@@ -46,20 +47,17 @@ public partial class CarSearch : System.Web.UI.Page
         DbClass dc = new DbClass();
         DataSet ds = dc.returnDataSet(sql);
 
-
-        /*
-        string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
-        SqlConnection con = new SqlConnection(conStr);
-        con.Open();
-
-        SqlCommand command = new SqlCommand(sql, con);
-        SqlDataAdapter sda = new SqlDataAdapter(command);
-        DataSet ds = new DataSet();
-        sda.Fill(ds);
-         */
-
-        gridView.DataSource = ds;
-        gridView.DataBind();
+        if (ds.Tables[0].Rows.Count > 0)
+        {
+            gridView.DataSource = ds;
+            gridView.DataBind();
+            divGridView.Visible = true;
+        }
+        else
+        {
+            divGridView.Visible = false;
+        }
+       
     }
     
 }

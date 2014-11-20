@@ -13,7 +13,9 @@
     <form id="form1" runat="server">
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
     <div>
-        <table border="10px">
+        <br />
+        <br />
+        <table class="tableClass" cellpadding="5" cellspacing="5">
             <tr>
                 <td>Brand Name Of The Car:</td>
                 <td><asp:DropDownList ID="ddlBrandName" OnSelectedIndexChanged="onchange_ddlBrandName" autoPostBack="True"  runat="server"></asp:DropDownList></td>
@@ -41,19 +43,21 @@
          <table width="100%">
             <tr>
                 <td>
-                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" Width="80%">
-                        <RowStyle BackColor = "#E7E7FF" ForeColor = "#4A3C8C" />
-                        <HeaderStyle BackColor = "#4A3C8C" Font-Bold = "True" ForeColor = "#F7F7F7" />
-                        <Columns>
-                            <asp:BoundField HeaderText="Car Brand" DataField="BrandName" />
-                            <asp:BoundField HeaderText="Car Model"  DataField="ModelName" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <img src='carimages/<%# Eval("ImageName") %>' height="50%" width="50%">
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+                    <div class="rounded_corners" style="width:80%;margin:0 auto" id="divGridView" runat="server">
+                        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" Width="100%" HeaderStyle-BackColor="#3AC0F2"
+                            HeaderStyle-ForeColor="White" RowStyle-BackColor="white" AlternatingRowStyle-BackColor="White"
+                            RowStyle-ForeColor="#3A3A3A">
+                            <Columns>
+                                <asp:BoundField HeaderText="Car Brand" DataField="BrandName" />
+                                <asp:BoundField HeaderText="Car Model"  DataField="ModelName" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <img src='carimages/<%# Eval("ImageName") %>' height="50%" width="50%">
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </td>
             </tr>
         </table>
