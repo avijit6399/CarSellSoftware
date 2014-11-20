@@ -19,7 +19,6 @@ public partial class Admin : System.Web.UI.Page
     {
         String sql="INSERT INTO [CarSellDb].[dbo].[AdminMaster] ([FirstName],[LastName],[Email] ,[Password]) VALUES (";
             sql +="'" + txtFirstName.Text + "','" + txtLastName.Text + "','" +txtEmail.Text+"','" +txtPassword.Text+"')";
-            Response.Write(sql);
 
         string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
         SqlConnection con = new SqlConnection(conStr);

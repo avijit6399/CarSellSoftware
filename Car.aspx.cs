@@ -19,21 +19,24 @@ public partial class Car : System.Web.UI.Page
             Session.Abandon();
             Response.Redirect("AdminLogin.aspx");
         }
+
         if (!IsPostBack)
         {
             new CommonFunctions().fillEngineDropDown(ddlEngineType);
             String sql = "select BrandId, BrandName from BrandMaster order by BrandName";
             CommonFunctions cf = new CommonFunctions();
-            cf.fillDatabaseDropDown(ddlBrandName, sql, "");
+            cf.fillDatabaseDropDown(ddlBrandName, sql, "", "Select Brand", "0");
         }
     }
+
     protected void onchange_ddlBrandName(object sender, EventArgs e)
     {
-        //ddlModelName.Items.Add(new ListItem("Select Model", "0"));
+        ddlModelName.Items.Add(new ListItem("Select Model", "0"));
         String sql = "select ModelId, ModelName from ModelMaster where BrandId=" + ddlBrandName.SelectedValue;
         CommonFunctions cf = new CommonFunctions();
         cf.fillDatabaseDropDown(ddlModelName, sql, "");
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         String fileName = "";
@@ -55,7 +58,6 @@ public partial class Car : System.Web.UI.Page
             sql += ",[CarEngineType],[CarMileage],[ImageName]) VALUES (";
             sql += "'" + ddlModelName.SelectedValue + "','" + txtCarColor.Text + "','" + txtCarPrice.Text + "'";
             sql += ",'" + ddlEngineType.Text + "','" + txtMileage.Text + "','" + fileName + "')";
-            Response.Write(sql);
 
         string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
         SqlConnection con = new SqlConnection(conStr);

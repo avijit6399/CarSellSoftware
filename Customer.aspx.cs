@@ -42,7 +42,6 @@ public partial class Customer : System.Web.UI.Page
             sql += ",'" + ddlMonth.SelectedValue + "/" + ddlDay.SelectedValue + "/" + ddlYear.SelectedValue + "'";
             sql += ",'" + ddlSex.Text + "','" + txtAddress.Text + "','" + txtCity.Text + "','" + txtState.Text + "','"
                 + txtCountry.Text + "','" + txtPin.Text + "','" + txtPhoneNumber.Text + "')";
-            Response.Write(sql);
 
         string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
         SqlConnection con = new SqlConnection(conStr);

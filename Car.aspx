@@ -19,7 +19,7 @@
         <table border="20px" align="center" style="vertical-align:bottom" >
              <tr>
                 <td>Car Brand:</td>
-                <td><asp:DropDownList ID="ddlBrandName" runat="server"></asp:DropDownList></td>
+                <td><asp:DropDownList ID="ddlBrandName" OnSelectedIndexChanged="onchange_ddlBrandName" AutoPostBack="True" runat="server"></asp:DropDownList></td>
             </tr>
             <tr>
                 <td>Car Model:</td>

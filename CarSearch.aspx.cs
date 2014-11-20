@@ -19,7 +19,7 @@ public partial class CarSearch : System.Web.UI.Page
 
             String sql = "select BrandId, BrandName from BrandMaster";
             CommonFunctions cf = new CommonFunctions();
-            cf.fillDatabaseDropDown(ddlBrandName, sql, "");
+            cf.fillDatabaseDropDown(ddlBrandName, sql, "", "Select Brand", "0");
             //ddlBrandName.Items.Add(new ListItem("Select Brand", "0"));
 
 
@@ -42,8 +42,6 @@ public partial class CarSearch : System.Web.UI.Page
             + " and m.modelid = c.modelid "
             + " and m.modelid=" + ddlModel.SelectedValue
             + " and c.CarEngineType='" + ddlEngineType.SelectedValue + "'";
-        
-        Response.Write(sql);
 
         DbClass dc = new DbClass();
         DataSet ds = dc.returnDataSet(sql);

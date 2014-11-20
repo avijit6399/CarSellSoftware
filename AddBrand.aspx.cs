@@ -36,7 +36,6 @@ public partial class AddCar : System.Web.UI.Page
         {
             sql = "INSERT INTO [CarSellDb].[dbo].[BrandMaster] ([BrandName]) VALUES(";
             sql += "'" + txtBrand.Text + "')";
-            Response.Write(sql);
 
             string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
             SqlConnection con = new SqlConnection(conStr);

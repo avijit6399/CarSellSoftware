@@ -41,7 +41,6 @@ public partial class AddModel : System.Web.UI.Page
         {
             sql = "INSERT INTO [CarSellDb].[dbo].[ModelMaster] ([BrandID],[ModelName]) VALUES(";
             sql += "'" + ddlBrandName.SelectedValue + "','" + txtModel.Text.Replace("'", "''") + "')";
-            Response.Write(sql);
 
             string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
             SqlConnection con = new SqlConnection(conStr);
@@ -50,9 +49,8 @@ public partial class AddModel : System.Web.UI.Page
             SqlCommand command = new SqlCommand(sql, con);
             int returnCode = command.ExecuteNonQuery();
             //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
-            msg.Text = "Brand sucessfully added";
+            msg.Text = "Model sucessfully added";
             txtModel.Text = "";
-            Response.Redirect("Car.aspx");
             //This should be ok
             //ok fine
         }

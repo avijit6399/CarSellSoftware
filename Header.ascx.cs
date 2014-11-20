@@ -29,6 +29,7 @@ public partial class Header : System.Web.UI.UserControl
             divLinkInfo.Visible = false;
             NavigationMenu.Items.Add(new MenuItem("Add Brand", "", "", "AddBrand.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Add Model", "", "", "AddModel.aspx"));
+            NavigationMenu.Items.Add(new MenuItem("Add Car Details", "", "", "Car.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Update Pofile", "", "", "AdminUpdateProfile.aspx"));
 
         }

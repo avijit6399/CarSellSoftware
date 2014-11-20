@@ -146,6 +146,46 @@ public class CommonFunctions
     }
     #endregion
 
+    #region fillDatabaseDropDown
+    public void fillDatabaseDropDown(DropDownList dl, string sql, string selectValue, string firstElementName, string firstElementValue)
+    {
+        dl.Items.Clear();
+
+        string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+        SqlConnection con = new SqlConnection(conStr);
+        SqlCommand com = new SqlCommand(sql, con);
+        SqlDataReader sdr;
+        try
+        {
+            dl.Items.Add(new ListItem(firstElementName, firstElementValue));
+            con.Open();
+            sdr = com.ExecuteReader();
+
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    dl.Items.Add(new ListItem(sdr[1].ToString(), sdr[0].ToString()));
+                }
+                if (selectValue != "")
+                {
+                    dl.SelectedValue = selectValue;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            con = null;
+            com = null;
+            sdr = null;
+        }
+    }
+    #endregion
+
     #region fillMonthDropDown
     public void fillMonthDropDown(DropDownList dl, string firstItemText, string firstItemValue)
     {
