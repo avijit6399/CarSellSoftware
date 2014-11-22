@@ -124,6 +124,12 @@ first child of the left and right table columns */
     margin: 0 auto;
 }
 
+.tableClassThin {
+    border: medium dashed #666699;
+    width: 50%;
+    margin: 0 auto;
+}
+
 .header
 {
     position: relative;

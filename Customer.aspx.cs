@@ -12,6 +12,15 @@ public partial class Customer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(Request.QueryString["msg"] !=null){
+            String msgStr = Request.QueryString["msg"].ToString();
+            if (msgStr.Equals("success"))
+            {
+                msg.Text = "Successfully Added. Please Click Login link";
+            }
+            
+        }
+
         if (!IsPostBack)
         {
             new CommonFunctions().fillGenderDropDown(ddlSex);
@@ -49,6 +58,9 @@ public partial class Customer : System.Web.UI.Page
 
         SqlCommand command = new SqlCommand(sql, con);
         int returnCode = command.ExecuteNonQuery();
-        Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
+        if (returnCode>0)
+        {
+            Response.Redirect("~?msg=success");
+        }
     }
 }

@@ -25,7 +25,7 @@ public partial class Header : System.Web.UI.UserControl
         if (Session["AdminId"] != null)
         {
             divLoginInfo.Visible = true;
-            HeadLoginName.Text = Session["FirstName"].ToString();
+            HeadLoginName.Text = Session["FirstName"].ToString() + " [Admin] ";
             divLinkInfo.Visible = false;
             NavigationMenu.Items.Add(new MenuItem("Brand", "", "", "AddBrand.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Model", "", "", "AddModel.aspx"));

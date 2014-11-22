@@ -12,6 +12,9 @@
     <div class="page">
     <form id="form1" runat="server">
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
+    <h2 style="text-align:left">
+        &nbsp;Search a Car
+    </h2>
     <div>
         <br />
         <br />
@@ -48,7 +51,7 @@
                             HeaderStyle-ForeColor="White" RowStyle-BackColor="white" AlternatingRowStyle-BackColor="White"
                             RowStyle-ForeColor="#3A3A3A">
                             <Columns>
-                                <asp:BoundField HeaderText="Car Brand" DataField="BrandName" />
+                                <asp:HyperLinkField HeaderText="Car Brand" DataTextField="BrandName" DataNavigateUrlFields="CarId" DataNavigateUrlFormatString="CarDetails.aspx?carid={0}" />
                                 <asp:BoundField HeaderText="Car Model"  DataField="ModelName" />
                                 <asp:TemplateField>
                                     <ItemTemplate>

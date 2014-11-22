@@ -14,7 +14,7 @@
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
     <center>
     <h2 style="text-align:left">
-        Admin Log In
+        &nbsp;Admin Log In
     </h2>
     <p>
         Please enter your username and password.

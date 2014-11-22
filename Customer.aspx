@@ -12,8 +12,15 @@
     <div class="page">
     <form id="form1" runat="server">
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
+    <h2 style="text-align:left">
+        &nbsp;Customer Sign Up
+    </h2>
     <div>
-        <table border="10px">
+        <br /><br />
+        <table class="tableClass" cellpadding="5" cellspacing="5">
+            <tr>
+                <td colspan="2"><asp:Label ID="msg" runat="server" ForeColor="Red" /></td>
+            </tr>
             <tr>
                 <td>First Name:</td>
                 <td><asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox></td>
@@ -29,17 +36,13 @@
                  <td>Password:</td>
                 <td><asp:TextBox ID="txtPassword" runat="server" Textmode="Password"></asp:TextBox></td>
             </tr>
-             <tr>
-                 <td>Date Of Birth:</td>
-                 <td>Day</td>
-                 <td>Month</td>
-                 <td>Year</td>
-            </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td><asp:DropDownList ID="ddlDay" runat="server"></asp:DropDownList></td>
-                <td><asp:DropDownList ID="ddlMonth" runat="server"></asp:DropDownList></td>
-                <td><asp:DropDownList ID="ddlYear" runat="server"></asp:DropDownList></td>
+                <td>Date Of Birth:</td>
+                <td colspan="3">Day: <asp:DropDownList ID="ddlDay" runat="server"></asp:DropDownList>
+                    Month: <asp:DropDownList ID="ddlMonth" runat="server"></asp:DropDownList>
+                    Year: <asp:DropDownList ID="ddlYear" runat="server"></asp:DropDownList>
+                </td>
+               
             </tr>
             <tr>
                 <td>Sex:</td>

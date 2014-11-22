@@ -27,9 +27,10 @@ public partial class Car : System.Web.UI.Page
             CommonFunctions cf = new CommonFunctions();
             cf.fillDatabaseDropDown(ddlBrandName, sql, "", "Select Brand", "0");
         }
+
         int CarId = 0;
 
-        if (Request.QueryString["mid"] != null)
+        if (Request.QueryString["carid"] != null)
         {
             CarId = Convert.ToInt16(Request.QueryString["carId"]);
         }

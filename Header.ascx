@@ -12,7 +12,7 @@
                     </div>
                     <br />
                     <div id="divLoginInfo" runat="server" visible="False">
-                        Welcome <span class="bold"><asp:Label ID="HeadLoginName" runat="server" /></span>!
+                        Welcome <span class="bold"><asp:Label ID="HeadLoginName" runat="server" /></span> !
                         <asp:HyperLink ID="logout" Text="Logout" NavigateUrl="Logout.aspx" runat="server" />
                     </div>
             </div>

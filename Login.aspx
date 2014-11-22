@@ -14,7 +14,7 @@
     <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
     <center>
     <h2 style="text-align:left">
-        Customer Log In
+        &nbsp;Customer Log In
     </h2>
     <p>
         Please enter your username and password.
@@ -45,8 +45,7 @@
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
                     <p>
-                        <asp:CheckBox ID="RememberMe" runat="server"/>
-                        <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Keep me logged in</asp:Label>
+                        <asp:HyperLink ID="signupLink" runat="server" Text="Sign Up" NavigateUrl="Customer.aspx" />
                     </p>
                 </fieldset>
                 <p class="submitButton">
