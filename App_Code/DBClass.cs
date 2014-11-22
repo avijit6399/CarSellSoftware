@@ -15,12 +15,19 @@ public class DbClass
     {
 
     }
+    public static String getConnectionStr()
+    {
+        return WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+    }
+
     public SqlConnection SqlCon()
     {
-        string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+        string conStr = DbClass.getConnectionStr();
         SqlConnection con = new SqlConnection(conStr);
         return con;
     }
+
+
 
     public DataSet returnDataSet(string sqlStr)
     {

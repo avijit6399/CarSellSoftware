@@ -48,7 +48,7 @@ public partial class AddCar : System.Web.UI.Page
             sql = "INSERT INTO [CarSellDb].[dbo].[BrandMaster] ([BrandName]) VALUES(";
             sql += "'" + txtBrand.Text + "')";
 
-            string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+            string conStr = DbClass.getConnectionStr();
             SqlConnection con = new SqlConnection(conStr);
             con.Open();
 
@@ -73,7 +73,7 @@ public partial class AddCar : System.Web.UI.Page
     public void PopulateGridView(int bid)
     {
         //Getting the connection string from web.config file
-        sqlDataSource.ConnectionString = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+        sqlDataSource.ConnectionString = DbClass.getConnectionStr();
         if (bid == 0)
         {
             sqlDataSource.SelectCommand = "Select * from BrandMaster";

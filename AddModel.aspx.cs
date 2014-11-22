@@ -24,6 +24,15 @@ public partial class AddModel : System.Web.UI.Page
             CommonFunctions cf = new CommonFunctions();
             cf.fillDatabaseDropDown(ddlBrandName, sql, "");
         }
+
+        int ModelId = 0;
+
+        if (Request.QueryString["mid"] != null)
+        {
+            ModelId = Convert.ToInt16(Request.QueryString["mid"]);
+        }
+
+        PopulateGridView(ModelId);
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -42,7 +51,7 @@ public partial class AddModel : System.Web.UI.Page
             sql = "INSERT INTO [CarSellDb].[dbo].[ModelMaster] ([BrandID],[ModelName]) VALUES(";
             sql += "'" + ddlBrandName.SelectedValue + "','" + txtModel.Text.Replace("'", "''") + "')";
 
-            string conStr = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+            string conStr = DbClass.getConnectionStr();
             SqlConnection con = new SqlConnection(conStr);
             con.Open();
 
@@ -51,13 +60,37 @@ public partial class AddModel : System.Web.UI.Page
             //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
             msg.Text = "Model sucessfully added";
             txtModel.Text = "";
-            //This should be ok
-            //ok fine
+          
         }
         else
         {
             msg.Text = "Model " + txtModel.Text + " already exists. Please try another one.";
         }
+        //Important Part
+        gridView.DataBind();
+        PopulateGridView(0);
         
+    }
+
+    public void PopulateGridView(int mid)
+    {
+        //Getting the connection string from web.config file
+        sqlDataSource.ConnectionString = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
+        if (mid == 0)
+        {
+            sqlDataSource.SelectCommand = "Select b.*, m.* from ModelMaster m, BrandMaster b where b.BrandId=m.BrandId";
+        }
+        else
+        {
+            sqlDataSource.SelectCommand = "Select b.*, m.* from ModelMaster m, BrandMaster b where b.BrandId=m.BrandId and m.ModelId=" + mid;
+        }
+
+        //Update statement. Here the Primary key of the table is testId and that has //been mentioned as
+        //DataKeyNames="testId" in the GridView control on .aspx page.
+        sqlDataSource.UpdateCommand = "Update ModelMaster set ModelName=@ModelName where ModelId=@ModelId";
+
+        //Delete statement.
+        sqlDataSource.DeleteCommand = "Delete ModelMaster where ModelId=@ModelId";
+
     }
 }
