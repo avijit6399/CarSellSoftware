@@ -12,6 +12,15 @@
     <div class="page">
     <form id="form1" runat="server">
      <HeaderPrefix:HeaderTag ID="HeaderId" runat="server" />
+        <div style="border:10px;width:50%;height:200px;background-color:Red;text-align:right;margin:0 auto">
+            <div style="width:100%;height:20px;background-color:Yellow;float:left">
+            </div>
+             <div style="border:10px;width:40%;height:100px;background-color:Green;float:left">
+            </div>
+
+            <div style="border:10px;width:40%;height:100px;background-color:Blue;float:right">
+            </div>
+        </div>
         <div>
              <br />
               <asp:Image ID="Image4" runat="server" ImageUrl="~/CarImages/CR-V.jpg" Height="201px" Width="371px"/>             

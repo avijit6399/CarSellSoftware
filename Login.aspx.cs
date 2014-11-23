@@ -18,6 +18,10 @@ public partial class Account_Login : System.Web.UI.Page
             {
                 lblMsg.Text = "Login is required for Appointment";
             }
+            if (msgStr.Equals("success"))
+            {
+                lblMsg.Text = "Successfully Registered";
+            }
 
         }
     }

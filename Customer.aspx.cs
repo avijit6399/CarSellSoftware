@@ -60,7 +60,7 @@ public partial class Customer : System.Web.UI.Page
         int returnCode = command.ExecuteNonQuery();
         if (returnCode>0)
         {
-            Response.Redirect("~?msg=success");
+            Response.Redirect("Login.aspx?msg=success");
         }
     }
 }

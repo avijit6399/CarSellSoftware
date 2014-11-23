@@ -48,6 +48,11 @@
                                         <asp:Label ID="lblColor" Text='<%#Eval("CarColor") %>' runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Customer">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblCustomer" Text='<%#Eval("FirstName") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                  <asp:TemplateField HeaderText="Engine">
                                     <ItemTemplate>
                                         <asp:Label ID="lblEngine" Text='<%#Eval("CarEngineType") %>' runat="server" />

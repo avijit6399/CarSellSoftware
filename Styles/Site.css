@@ -119,7 +119,7 @@ first child of the left and right table columns */
 
 .tableClass
 {
-    border: thick dotted #FF0000;
+    border: thick dotted #008000;
     width: 50%;
     margin: 0 auto;
 }
