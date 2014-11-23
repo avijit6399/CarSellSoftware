@@ -75,7 +75,17 @@
                                 </asp:TemplateField>
                                 <asp:BoundField ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" HeaderText="Color" DataField="CarColor" />
                                 <asp:BoundField ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" HeaderText="Price" DataField="CarPrice" />
-                                <asp:BoundField ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center" HeaderText="Mileage" DataField="CarMileage" />
+
+                                <asp:TemplateField HeaderText="Mileage">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtCarMileage"  Text='<%# Bind("CarMileage") %>'  runat="server" />
+                                        <asp:RangeValidator ID="range1" ControlToValidate="txtCarMileage" runat="server" MinimumValue="1" MaximumValue="1000" Type="Integer" ErrorMessage="Enter proper value" ></asp:RangeValidator>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblMileage" runat="server" Text='<%# Bind("CarMileage") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
                                 <asp:TemplateField HeaderText="Engine">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind("CarEngineType") %>'>

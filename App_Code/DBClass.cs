@@ -27,7 +27,29 @@ public class DbClass
         return con;
     }
 
-
+    public int getRecordCountFromQuery(String sql)
+    {
+        DataSet ds = returnDataSet(sql);
+        try
+        {
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0].Rows.Count;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            ds = null;
+        }
+    }
 
     public DataSet returnDataSet(string sqlStr)
     {

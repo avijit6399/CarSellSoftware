@@ -15,6 +15,12 @@
         &nbsp;Appointment Details
     </h2>
      <div style="width:100%;">
+         <div style="text-align:center">
+             <div style="margin:0 auto">
+                 <asp:Label ID="lblMsg" runat="server" ForeColor="Red" Font-Bold="true" EnableViewState="false" />
+             </div>
+         </div>
+        
         <br /><br />
         <table style="width:100%">
             <tr>

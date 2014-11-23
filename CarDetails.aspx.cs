@@ -36,7 +36,6 @@ public partial class CarSearch : System.Web.UI.Page
         }
 
         string sql = "";
-        //sql = "SELECT * FROM [CarSellDb].[dbo].[CarMaster]";
         sql = "Insert into AppointmentDetails (CarId, CustId, PreferredDateTime, status) values ("
             + "'" + txtCarId.Value + "'"
             + ",'" + SessionManagement.getSession("custId") + "'" 
@@ -48,9 +47,8 @@ public partial class CarSearch : System.Web.UI.Page
 
         SqlCommand command = new SqlCommand(sql, con);
         int returnCode = command.ExecuteNonQuery();
-        //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
-        
-       
+        Response.Redirect("CustomerAppointmentDetails.aspx?msg=added");
+      
     }
 
     public void PopulateGridView(int carId)

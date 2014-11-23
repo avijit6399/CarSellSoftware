@@ -87,8 +87,8 @@ public partial class AddModel : System.Web.UI.Page
 
         //Update statement. Here the Primary key of the table is testId and that has //been mentioned as
         //DataKeyNames="testId" in the GridView control on .aspx page.
-        sqlDataSource.UpdateCommand = "Update ModelMaster set ModelName=@ModelName where ModelId=@ModelId";
-
+        //sqlDataSource.UpdateCommand = "Update ModelMaster m set ModelName=@ModelName where ModelId=@ModelId AND (select count(*) from ModelMaster mm where mm.BrandId = m.BrandId and mm.ModelName=@ModelName)=0";
+        sqlDataSource.UpdateCommand = "Update ModelMaster set ModelName=@ModelName where ModelId=@ModelId AND (select count(*) from ModelMaster where ModelName=@ModelName and BrandId=@BrandId)=0";
         //Delete statement.
         sqlDataSource.DeleteCommand = "Delete ModelMaster where ModelId=@ModelId";
 
