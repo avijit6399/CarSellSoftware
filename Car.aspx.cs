@@ -75,7 +75,7 @@ public partial class Car : System.Web.UI.Page
 
         SqlCommand command = new SqlCommand(sql, con);
         int returnCode = command.ExecuteNonQuery();
-        Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
+        //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
 
         //Important Part
         gridView.DataBind();

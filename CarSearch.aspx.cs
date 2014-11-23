@@ -40,10 +40,18 @@ public partial class CarSearch : System.Web.UI.Page
         //sql = "SELECT * FROM [CarSellDb].[dbo].[CarMaster]";
         sql = "select c.*, m.*, b.* from CarMaster c, ModelMaster m, BrandMaster b "
             + " where b.brandid = m.brandid "
-            + " and m.modelid = c.modelid "
-            + " and m.modelid=" + ddlModel.SelectedValue
-            + " and c.CarEngineType='" + ddlEngineType.SelectedValue + "'";
+            + " and m.modelid = c.modelid ";
 
+        if (ddlModel.SelectedValue != "")
+        {
+            sql = sql + " and m.modelid=" + ddlModel.SelectedValue;
+        }
+
+        if (ddlEngineType.SelectedValue != "Select")
+        {
+            sql += " and c.CarEngineType='" + ddlEngineType.SelectedValue + "'";
+        }
+        
         DbClass dc = new DbClass();
         DataSet ds = dc.returnDataSet(sql);
 
