@@ -27,12 +27,7 @@
     <script src="Scripts/jquery-ui-1.10.4.custom.js"></script>
     <script src="Scripts/jquery-ui-timepicker-addon.js"></script>
     
-    <script type="text/javascript">
-        $(function () {
-            $('#txtDateTime').datetimepicker();
-        });
-        
-    </script>
+    
 </head>
 <body>
     <div class="page">
@@ -41,13 +36,25 @@
     <h2 style="text-align:left">
         &nbsp;Car Details/Schedule Appointment
     </h2>
+        <script type="text/javascript">
+            $(function () {
+                $('#txtDateTime').datetimepicker({
+                    minDate: new Date(<%=minDate%>),
+                    maxDate: new Date(2020, 01, 31, 17, 30)
+                });
+            });
+
+        </script>
     <div>
         <br />
         <br />
         <table width="80%"  border="0" style="margin:0 auto;text-align:center">
             <tr>
                 <td><asp:TextBox ID="txtDateTime" Text="Click to Select Date/Time" runat="server" />
-                    &nbsp;<asp:Button ID="btnSchedule" runat="server" Text="Schedule Appointment" Enabled="true" OnClick="btnSchedule_Click" /></td>
+                    &nbsp;<asp:Button ID="btnSchedule" runat="server" Text="Schedule Appointment" Enabled="true" OnClick="btnSchedule_Click" />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ControlToValidate="txtDateTime" ForeColor="Red" Font-Bold="true"
+                        ValidationExpression="^[0-9]{2}\/[0-9]{2}\/[0-9]{4}[ ][0-2][0-9][:][0-9]{2}$"  ErrorMessage="Select a proper Date and Time"></asp:RegularExpressionValidator>
+                </td>
             </tr>
         </table>
         <br /> <br />
@@ -55,12 +62,19 @@
             DataSourceID="sqlDataSource" DataKeyNames="CarId" AutoGenerateRows="false" Width="80%" ForeColor="Blue" BorderWidth="0px">
             <Fields>
                 <asp:ImageField ItemStyle-Wrap="true" DataImageUrlField="ImageName" ControlStyle-Height="60%" DataImageUrlFormatString="~/CarImages/{0}" />
-                <asp:BoundField HeaderText="Car Brand" DataField="BrandName" />
-                <asp:BoundField HeaderText="Car Model" DataField="ModelName" />
+                <asp:BoundField HeaderText="Brand" DataField="BrandName" />
+                <asp:BoundField HeaderText="Model" DataField="ModelName" />
+                <asp:BoundField HeaderText="Engine Type" DataField="EngineType" />
+                <asp:BoundField HeaderText="Color" DataField="CarColor" />
+                <asp:BoundField HeaderText="Price" DataField="CarPrice" />
+                <asp:BoundField HeaderText="Mileage" DataField="CarMileage" />
+
             </Fields>
         </asp:DetailsView>
         <asp:SqlDataSource ID="sqlDataSource" runat="server" />
         <asp:HiddenField ID="txtCarId" runat="server" />
+        <br />
+        <br />
     </div>
     </form>
     </div>

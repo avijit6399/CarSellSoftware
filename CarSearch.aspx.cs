@@ -29,7 +29,7 @@ public partial class CarSearch : System.Web.UI.Page
     protected void onchange_ddlBrandName(object sender, EventArgs e)
     {
         ddlModel.Items.Add(new ListItem("Select Model", "0"));
-        String sql = "select ModelId, ModelName from ModelMaster where BrandId=" + ddlBrandName.SelectedValue;
+        String sql = "select m.ModelId, m.ModelName from ModelMaster m, CarMaster c where m.ModelId=c.ModelId and m.BrandId=" + ddlBrandName.SelectedValue;
         CommonFunctions cf = new CommonFunctions();
         cf.fillDatabaseDropDown(ddlModel, sql, "");
     }

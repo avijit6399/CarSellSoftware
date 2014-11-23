@@ -102,7 +102,7 @@ public partial class Car : System.Web.UI.Page
         sqlDataSource.UpdateCommand = "Update CarMaster set CarColor=@CarColor, CarPrice=@CarPrice, CarMileage=@CarMileage, CarEngineType=@CarEngineType where CarId=@CarId";
 
         //Delete statement.
-        sqlDataSource.DeleteCommand = "Delete CarMaster where ModelId=@ModelId";
+        sqlDataSource.DeleteCommand = "Exec DeleteFromMaster @CarIdVal=@CarId";
 
     }
 

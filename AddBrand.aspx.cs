@@ -88,7 +88,7 @@ public partial class AddCar : System.Web.UI.Page
         sqlDataSource.UpdateCommand = "Update BrandMaster set BrandName=@BrandName where BrandId=@BrandId";
 
         //Delete statement.
-        sqlDataSource.DeleteCommand = "Delete BrandMaster where BrandId=@BrandId";
+        sqlDataSource.DeleteCommand = "Exec DeleteFromMaster @BrandIdVal=@BrandId";
                         
     }
 }

@@ -1,11 +1,10 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
 
-body   
-{
-    background: #b6b7bc;
+body {
+    background: #001500;
     font-size: .80em;
-    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
     padding: 0px;
     color: #696969;
@@ -114,7 +113,7 @@ first child of the left and right table columns */
     background-color: #fff;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
-    height: 960px;
+    height: inherit;
 }
 
 .tableClass
