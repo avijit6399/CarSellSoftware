@@ -11,7 +11,15 @@ public partial class Account_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+        if (Request.QueryString["msg"] != null)
+        {
+            String msgStr = Request.QueryString["msg"].ToString();
+            if (msgStr.Equals("loginreqappointment"))
+            {
+                lblMsg.Text = "Login is required for Appointment";
+            }
+
+        }
     }
     protected void LoginButton_Click(object sender, EventArgs e)
     {

@@ -17,34 +17,39 @@ public partial class CarSearch : System.Web.UI.Page
         if (Request.QueryString["carid"] != null)
         {
             CarId = Convert.ToInt16(Request.QueryString["carId"]);
+            txtCarId.Value = CarId.ToString();
+        }
+        else
+        {
+            txtCarId.Value = "";
         }
 
         PopulateGridView(CarId);
     }
     
-    protected void btnSearch_Click(object sender, EventArgs e)
+    protected void btnSchedule_Click(object sender, EventArgs e)
     {
+        if (SessionManagement.isCustomerSession() == false)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx?msg=loginreqappointment");
+        }
+
         string sql = "";
         //sql = "SELECT * FROM [CarSellDb].[dbo].[CarMaster]";
-        sql = "select c.*, m.*, b.* from CarMaster c, ModelMaster m, BrandMaster b "
-            + " where b.brandid = m.brandid "
-            + " and m.modelid = c.modelid "
-            + " and m.modelid=" + ""
-            + " and c.CarEngineType='" + "" + "'";
+        sql = "Insert into AppointmentDetails (CarId, CustId, PreferredDateTime, status) values ("
+            + "'" + txtCarId.Value + "'"
+            + ",'" + SessionManagement.getSession("custId") + "'" 
+            + ",'" + txtDateTime.Text.Replace("'","''") + "','Waiting for Approval')";
 
-        DbClass dc = new DbClass();
-        DataSet ds = dc.returnDataSet(sql);
+        string conStr = DbClass.getConnectionStr();
+        SqlConnection con = new SqlConnection(conStr);
+        con.Open();
 
-        if (ds.Tables[0].Rows.Count > 0)
-        {
-            //gridView.DataSource = ds;
-            //gridView.DataBind();
-            //divGridView.Visible = true;
-        }
-        else
-        {
-            //divGridView.Visible = false;
-        }
+        SqlCommand command = new SqlCommand(sql, con);
+        int returnCode = command.ExecuteNonQuery();
+        //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
+        
        
     }
 
@@ -52,12 +57,7 @@ public partial class CarSearch : System.Web.UI.Page
     {
         //Getting the connection string from web.config file
         sqlDataSource.ConnectionString = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
-        if (carId == 0)
-        {
-            sqlDataSource.SelectCommand = "Select b.*, m.*, c.* from ModelMaster m, BrandMaster b, CarMaster c "
-            + " where b.BrandId=m.BrandId and m.ModelId=c.modelid";
-        }
-        else
+        if (carId != 0)
         {
             sqlDataSource.SelectCommand = "Select b.*, m.*, c.* from ModelMaster m, BrandMaster b, CarMaster c"
                 + " where b.BrandId=m.BrandId and m.ModelId=c.modelid and c.CarId=" + carId;

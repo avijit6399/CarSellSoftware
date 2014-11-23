@@ -55,7 +55,7 @@
                                 <asp:BoundField HeaderText="Car Model"  DataField="ModelName" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <img src='carimages/<%# Eval("ImageName") %>' height="50%" width="50%">
+                                        <img src='carimages/<%# Eval("ImageName") %>' height="40%">
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

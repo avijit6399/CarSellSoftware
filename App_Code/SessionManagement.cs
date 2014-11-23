@@ -58,4 +58,23 @@ public class SessionManagement
             }
         }
     }
+
+    public static Boolean isCustomerSession()
+    {
+        if (getSession("custId") == null)
+        {
+            return false;
+        }
+        else
+        {
+            if (getSession("custId").Equals(""))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
 }

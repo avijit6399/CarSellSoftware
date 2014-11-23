@@ -17,6 +17,7 @@ public partial class Header : System.Web.UI.UserControl
             divLoginInfo.Visible = true;
             HeadLoginName.Text = Session["FirstName"].ToString();
             divLinkInfo.Visible = false;
+            NavigationMenu.Items.Add(new MenuItem("Appointments", "", "", "CustomerAppointmentDetails.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Update Pofile", "", "", "UpdateProfile.aspx"));
 
         }
