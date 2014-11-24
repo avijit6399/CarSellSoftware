@@ -63,4 +63,5 @@ public partial class Customer : System.Web.UI.Page
             Response.Redirect("Login.aspx?msg=success");
         }
     }
+   
 }

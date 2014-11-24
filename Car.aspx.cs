@@ -75,6 +75,7 @@ public partial class Car : System.Web.UI.Page
 
         SqlCommand command = new SqlCommand(sql, con);
         int returnCode = command.ExecuteNonQuery();
+        msg.Text = "Car sucessfully added";
         //Response.Write("Successfully Inserted " + Convert.ToString(returnCode));
 
         //Important Part
@@ -102,7 +103,7 @@ public partial class Car : System.Web.UI.Page
         sqlDataSource.UpdateCommand = "Update CarMaster set CarColor=@CarColor, CarPrice=@CarPrice, CarMileage=@CarMileage, CarEngineType=@CarEngineType where CarId=@CarId";
 
         //Delete statement.
-        sqlDataSource.DeleteCommand = "Delete CarMaster where ModelId=@ModelId";
+        sqlDataSource.DeleteCommand = "Delete CarMaster where CarId=@CarId";
 
     }
 

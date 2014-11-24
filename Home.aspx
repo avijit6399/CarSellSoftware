@@ -17,7 +17,6 @@
             </div>
              <div style="border:10px;width:40%;height:100px;background-color:Green;float:left">
             </div>
-
             <div style="border:10px;width:40%;height:100px;background-color:Blue;float:right">
             </div>
         </div>

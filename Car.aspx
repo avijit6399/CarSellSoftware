@@ -16,6 +16,9 @@
         <br />
         <br />
         <table class="tableClass" cellpadding="5" cellspacing="5">
+            <tr>
+                <td colspan="2"><asp:Label ID="msg" runat="server" ForeColor="Red" /></td>
+            </tr>
              <tr>
                 <td>Car Brand:</td>
                 <td><asp:DropDownList ID="ddlBrandName" OnSelectedIndexChanged="onchange_ddlBrandName" AutoPostBack="True" runat="server"></asp:DropDownList></td>
