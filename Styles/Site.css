@@ -1,9 +1,8 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
 
-body
-{
-    background: #669999;
+body {
+    background: #001500;
     font-size: .80em;
     font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
@@ -111,15 +110,15 @@ first child of the left and right table columns */
 .page
 {
     width: 960px;
-    background-color: #FFFFFF;
+    background-color: #fff;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
-    height: 960px;
+    height: inherit;
 }
 
 .tableClass
 {
-    border: thick dotted #0099CC;
+    border: thick dotted #008000;
     width: 50%;
     margin: 0 auto;
 }
@@ -135,7 +134,7 @@ first child of the left and right table columns */
     position: relative;
     margin: 0px;
     padding: 0px;
-    background: #993333;
+    background: #4b6c9e;
     width: 100%;
 }
 
@@ -173,16 +172,6 @@ first child of the left and right table columns */
     text-align: center;
     line-height: normal;
 }
-.tablestyle
-{
-    background-color: #0099CC;
-    border: medium hidden #800080;
-    font-size: x-large;
-    font-style: italic;
-    font-variant: normal;
-    text-decoration: blink;
-    color: #000000;
-}
 
 
 /* TAB MENU   
@@ -190,8 +179,8 @@ first child of the left and right table columns */
 
 div.hideSkiplink
 {
-    background-color: #66CCFF;
-    width: 100%;
+    background-color:#3a4f63;
+    width:100%;
 }
 
 div.menu
@@ -209,7 +198,7 @@ div.menu ul
 
 div.menu ul li a, div.menu ul li a:visited
 {
-    background-color: #660066;
+    background-color: #465c71;
     border: 1px #4e667d solid;
     color: #dde4ec;
     display: block;
@@ -305,7 +294,6 @@ div.accountInfo
     text-align: right;
     padding: 10px;
     color: White;
-    background-color: #990033;
 }
 
 .loginDisplay a:link

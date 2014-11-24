@@ -10,10 +10,35 @@ using System.Data;
 
 public partial class CarSearch : System.Web.UI.Page
 {
+    public String minDate = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        int CarId = 0;
+        //Date Logic written here
+        Boolean isNewDay=false;
+        DateTime src = DateTime.Now;
+        src = src.AddHours(2);
 
+        if(src.Hour > 20)
+        {
+            src = src.AddDays(1);
+            isNewDay = true;
+        }
+
+        minDate = src.Year + "," + (src.Month-1) + "," + src.Day + "," ;
+
+        if (isNewDay == true)
+        {
+            minDate += "8" + "," + "30";
+        }
+        else
+        {
+            minDate += src.Hour + "," + src.Minute;
+        }
+        //DateTime Logic ends here
+
+
+        int CarId = 0;
         if (Request.QueryString["carid"] != null)
         {
             CarId = Convert.ToInt16(Request.QueryString["carId"]);
@@ -57,7 +82,7 @@ public partial class CarSearch : System.Web.UI.Page
         sqlDataSource.ConnectionString = WebConfigurationManager.ConnectionStrings["conStr"].ToString();
         if (carId != 0)
         {
-            sqlDataSource.SelectCommand = "Select b.*, m.*, c.* from ModelMaster m, BrandMaster b, CarMaster c"
+            sqlDataSource.SelectCommand = "Select b.*, m.*, c.*, EngineType = case c.CarEngineType when 'P' then 'PETROL' WHEN 'D' THEN 'DIESEL' END from ModelMaster m, BrandMaster b, CarMaster c"
                 + " where b.BrandId=m.BrandId and m.ModelId=c.modelid and c.CarId=" + carId;
         }
 

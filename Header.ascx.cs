@@ -31,7 +31,7 @@ public partial class Header : System.Web.UI.UserControl
                 NavigationMenu.Items.Add(new MenuItem("Appointments", "", "", "CustomerAppointmentDetails.aspx"));
             }
 
-            NavigationMenu.Items.Add(new MenuItem("Update Pofile", "", "", "UpdateProfile.aspx"));
+            NavigationMenu.Items.Add(new MenuItem("Update Pofile", "", "", "CustomerUpdateProfile.aspx"));
 
         }
 
