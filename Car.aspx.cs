@@ -103,7 +103,6 @@ public partial class Car : System.Web.UI.Page
 
         //Delete statement.
         sqlDataSource.DeleteCommand = "Exec DeleteFromMaster @CarIdVal=@CarId";
-
     }
 
     protected void gridview_RowDataBound(object sender, GridViewRowEventArgs e)
