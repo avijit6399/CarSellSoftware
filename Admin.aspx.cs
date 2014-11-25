@@ -12,7 +12,12 @@ public partial class Admin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (SessionManagement.isAdminSession() != true)
+        {
+            Session.Abandon();
+            Response.Redirect("AdminLogin.aspx");
+            //it's ok
+        }
     }
    
         protected void btnSubmit_Click(object sender, EventArgs e)

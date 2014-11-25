@@ -12,6 +12,8 @@ public partial class Header : System.Web.UI.UserControl
     {
         NavigationMenu.Items.Add(new MenuItem("Home", "", "", "Home.aspx"));
         NavigationMenu.Items.Add(new MenuItem("Search Car", "", "", "CarSearch.aspx"));
+        NavigationMenu.Items.Add(new MenuItem("About", "", "", "About.aspx"));
+        NavigationMenu.Items.Add(new MenuItem("Contact Us", "", "", "ContactUs.aspx"));
         
         if (Session["CustId"] != null)
         {
@@ -19,7 +21,7 @@ public partial class Header : System.Web.UI.UserControl
             HeadLoginName.Text = Session["FirstName"].ToString();
             divLinkInfo.Visible = false;
 
-            String sql = "select * from AppointmentDetails where Status='Scheduled' and CustId=" + SessionManagement.getSession("custId");
+            String sql = "select c.*, a.* from CarMaster c, AppointmentDetails a where c.CarId=a.CarId and a.Status='Scheduled' and a.CustId=" + SessionManagement.getSession("custId");
             DbClass dc = new DbClass();
             int recordCount = dc.getRecordCountFromQuery(sql);
             if (recordCount > 0)
@@ -44,6 +46,7 @@ public partial class Header : System.Web.UI.UserControl
             NavigationMenu.Items.Add(new MenuItem("Brand", "", "", "AddBrand.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Model", "", "", "AddModel.aspx"));
             NavigationMenu.Items.Add(new MenuItem("Car Details", "", "", "Car.aspx"));
+            NavigationMenu.Items.Add(new MenuItem("Admin sign up", "", "", "Admin.aspx"));
 
 
             String sql = "select * from AppointmentDetails where Status='Waiting for Approval'";
@@ -59,8 +62,7 @@ public partial class Header : System.Web.UI.UserControl
             }
         }
 
-        NavigationMenu.Items.Add(new MenuItem("About", "", "", "About.aspx"));
-        NavigationMenu.Items.Add(new MenuItem("Contact Us", "", "", "ContactUs.aspx"));
+       
 
     }
 }

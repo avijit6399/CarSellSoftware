@@ -31,7 +31,7 @@ public partial class CarSearch : System.Web.UI.Page
         ddlModel.Items.Add(new ListItem("Select Model", "0"));
         String sql = "select m.ModelId, m.ModelName from ModelMaster m, CarMaster c where m.ModelId=c.ModelId and m.BrandId=" + ddlBrandName.SelectedValue;
         CommonFunctions cf = new CommonFunctions();
-        cf.fillDatabaseDropDown(ddlModel, sql, "");
+        cf.fillDatabaseDropDown(ddlModel, sql, "", "Select Model", "");
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -41,6 +41,11 @@ public partial class CarSearch : System.Web.UI.Page
         sql = "select c.*, m.*, b.* from CarMaster c, ModelMaster m, BrandMaster b "
             + " where b.brandid = m.brandid "
             + " and m.modelid = c.modelid ";
+
+        if (ddlBrandName.SelectedValue != "0")
+        {
+            sql = sql + " and b.BrandId=" + ddlBrandName.SelectedValue;
+        }
 
         if (ddlModel.SelectedValue != "")
         {
@@ -63,9 +68,10 @@ public partial class CarSearch : System.Web.UI.Page
         }
         else
         {
+           
             divGridView.Visible = false;
         }
-       
+        
     }
     
 }
